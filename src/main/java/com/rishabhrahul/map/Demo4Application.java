@@ -22,7 +22,14 @@ public class Demo4Application {
     public static void main(String[] args) {
         SpringApplication.run(Demo4Application.class, args);
     }
-@Bean
+
+    /**
+     * This method was to ingest the file through kafka, and do the processing on memory.
+     *
+     * @param kafkaTemplate
+     * @return File read from src/main/resources/berlinWay/part-000
+     */
+    @Bean
 CommandLineRunner commandLineRunner(KafkaTemplate<String,String> kafkaTemplate){
     return args -> {
         for (int i = 26; i <= 40; i++) {
